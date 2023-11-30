@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <!-- <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#043A70"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:padding="10sp"
+        xmlns:android="http://schemas.android.com/apk/res/android"/> -->
+
+<!-- recyclerview_item.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saldo Placeholder"/>
+
+    <TextView
+        android:id="@+id/textCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad Placeholder"
+        xmlns:android="http://schemas.android.com/apk/res/android"/>
+</LinearLayout>
+
+
+

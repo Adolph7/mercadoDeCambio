@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">MyApplication</string>
+    <string name="txt_view1">Mercado de cambio</string>
+    <string name="edit_txt">Ingresa tu nombre...</string>
+    <string name="boton_string">Login</string>
+    <string name="txt_view2">El mercado mas seguro del mundo</string>
+</resources>
