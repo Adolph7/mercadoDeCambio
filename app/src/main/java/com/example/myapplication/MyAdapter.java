@@ -16,7 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public MyAdapter(String[] saldo, String[] cantidades) {
         this.saldo = saldo;
-        this. cantidades = cantidades;
+        this. cantidades = cantidades; 
     }
 
     @NonNull
@@ -42,9 +42,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public TextView cantidadTextView;
 
         public ViewHolder(@NonNull View itemView) {
+           /* super(itemView);
+            saldoTextView = itemView.findViewById(R.id.textSaldo);
+            cantidadTextView = itemView.findViewById(R.id.textCantidad);*/
+
             super(itemView);
             saldoTextView = itemView.findViewById(R.id.textSaldo);
+            saldoTextView.setOnClickListener(view -> {
+                if (cantidadTextView.getVisibility()==View.VISIBLE) {
+                    cantidadTextView.setVisibility(View.INVISIBLE);
+                } else {
+                    cantidadTextView.setVisibility(View.VISIBLE);
+                }
+            });
             cantidadTextView = itemView.findViewById(R.id.textCantidad);
+            // Oculta la cantidad
+            cantidadTextView.setVisibility(View.INVISIBLE);
         }
     }
 }

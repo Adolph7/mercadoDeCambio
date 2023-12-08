@@ -4,4 +4,8 @@
     <string name="edit_txt">Ingresa tu nombre...</string>
     <string name="boton_string">Login</string>
     <string name="txt_view2">El mercado mas seguro del mundo</string>
+    <string name="cambiar">Cambio</string>
+    <string name="info">Informacion</string>
+    <string name="Logout" />
+    <string name="Informacion" />
 </resources>
