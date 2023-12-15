@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +32,9 @@ import okhttp3.Response;
 
 public class Main3Activity extends AppCompatActivity {
 
+    final static String KEY_PREFS_LAST_PREG = "preg";
+    final static String PREFS_CACHE_NAME = "cache";
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         new MenuInflater(this).inflate(R.menu.menu_list,menu);
@@ -40,11 +45,10 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.cmbiar) {
-
             Intent intent = new Intent(this, Main3Activity.class);
             startActivity(intent);
         }else if (item.getItemId()==R.id.info){
-           logout(null);
+           logout();
         }
 
         return super.onOptionsItemSelected(item);
@@ -63,11 +67,22 @@ public class Main3Activity extends AppCompatActivity {
         Toolbar tool= findViewById(R.id.toolbar_menu);
         setSupportActionBar(tool);
 
+        SharedPreferences prefs = getSharedPreferences(PREFS_CACHE_NAME, Context.MODE_PRIVATE);
+        String preguntar = prefs.getString (KEY_PREFS_LAST_PREG, "");
+        EditText edtText= findViewById(R.id.editTextTextDolar);
+        edtText.setText(preguntar);
+
+
+
         Button btn = findViewById(R.id.buttonDolar);
         btn.setOnClickListener(v -> {
-            EditText edtText= findViewById(R.id.editTextTextDolar);
+
             String precio= edtText.getText().toString();
-           // Toast.makeText(this, "precio",Toast.LENGTH_SHORT).show();
+
+            getSharedPreferences("cache", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString(KEY_PREFS_LAST_PREG, precio);
+            editor.apply();
 
             String url = "https://api.bluelytics.com.ar/v2/latest";
 
@@ -122,6 +137,7 @@ public class Main3Activity extends AppCompatActivity {
         });
     }
     public void logout (View view) {
+
         finish();
     }
 
